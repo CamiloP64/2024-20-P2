@@ -1,8 +1,16 @@
-<div class="trainer-detail">
-  <h2>{{ trainerDetail.name }}</h2>
-  <img [src]="trainerDetail.imageUrl" [alt]="trainerDetail.name" />
-  <p><strong>Age:</strong> {{ trainerDetail.age }}</p>
-  <p><strong>About...</strong> {{ trainerDetail.bigSnopsies }}</p>
-  <p><strong>Pokemons:</strong></p>
-  <app-pokemon-list [pokemonList]="trainerDetail.pokemons"></app-pokemon-list>
+<div class="trainer-detail" *ngIf="trainerDetail; else loading">
+  <h1>{{ trainerDetail.name }}</h1>
+  <img [src]="trainerDetail.imageUrl" alt="{{ trainerDetail.name }}" />
+  <p><strong>Edad:</strong> {{ trainerDetail.age }} años</p>
+  <h2>Biografía</h2>
+  <p>{{ trainerDetail.bigSnopsies }}</p>
+  <h2>Pokémon</h2>
+  <ul>
+    <li *ngFor="let pokemon of trainerDetail.pokemons">{{ pokemon.name }}</li>
+  </ul>
 </div>
+
+<ng-template #loading>
+  <p>Cargando detalles...</p>
+</ng-template>
+

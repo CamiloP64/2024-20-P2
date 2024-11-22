@@ -1,0 +1,12 @@
+<div class="pokemon-detail">
+    <h2>{{ pokemonDetail.name }}</h2>
+    <img [src]="pokemonDetail.imageUrl" [alt]="pokemonDetail.name" />
+    <p><strong>Type:</strong> {{ pokemonDetail.type }}</p>
+    <p><strong>Level:</strong> {{ pokemonDetail.level }}</p>
+    <p><strong>Abilities:</strong></p>
+    <ul>
+      <li *ngFor="let ability of pokemonDetail.abilities">{{ ability }}</li>
+    </ul>
+  </div>
+
+  
